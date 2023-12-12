@@ -4,4 +4,6 @@ data_types = [
     [21, 49], {"name": 'Micky', "age": 17}
 ]
 
-# TODO: Пожалуйста, добавьте свой код ниже с комментариями и понятными названиями переменных.
+for items in data_types:
+    if not isinstance(items, (float, str)):
+        print("Элемент: ", items, "Тип:", type(items))

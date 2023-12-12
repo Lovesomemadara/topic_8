@@ -1,1 +1,10 @@
-# TODO: Пожалуйста, добавьте свой код ниже с комментариями и понятными названиями переменных.
+n: int = int(input())
+range_sum: int = 0
+
+for i in range(1, n + 1):
+    range_sum += i
+    if range_sum > 100:
+        print(f"Сумма всех чисел в диапазоне от 1 до {i} больше 100")
+        break
+else:
+    print(range_sum)
