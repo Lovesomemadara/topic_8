@@ -4,6 +4,10 @@ player1_name: str = input("Игрок 1, введите свое имя: ")
 player2_name: str = input("Игрок 2, введите свое имя: ")
 repeat: str = "да"
 
+rock = "камень"
+paper = "бумага"
+scissors = "ножницы"
+
 while repeat == "да":
 
     player1_choice: str = input(f"{player1_name}: ")
@@ -32,5 +36,4 @@ while repeat == "да":
 
     repeat = input("Хотите продолжить игру? (да/нет): ")
 
-else:
-    print("До встречи!")
+print("До встречи!")

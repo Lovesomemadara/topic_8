@@ -1,6 +1,4 @@
-positive_sum = 0
-negative_sum = 0
-negative_count = 0
+positive_sum = negative_sum = negative_count = 0
 
 while True:
     num: int = int(input("Введите целое число: "))
