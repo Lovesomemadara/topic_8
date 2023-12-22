@@ -6,6 +6,7 @@ repeat: str = "да"
 
 winner: str = "Поздравляем! Победитель - "
 
+# TODO: 1. Дублирование шаблонов
 att_player1: str = (f"ПРЕДУПРЕЖДЕНИЕ: {player1_name} соблюдайте "
                     f"правила игры. Начнем игру заново!")
 
@@ -15,10 +16,14 @@ att_player2: str = (f"ПРЕДУПРЕЖДЕНИЕ: {player2_name} соблюд�
 att_all: str = ("ПРЕДУПРЕЖДЕНИЕ: Пожалуйста соблюдайте правила игры. "
                 "Начнем игру заново!")
 
+# TODO: 2. Лучше использовать переменные (константы)
 game: list = ["бумага", "камень", "ножницы"]
 
-while repeat == "да":
+ROCK = "камень"
+PAPER = "бумага"
+SCISSORS = "ножницы"
 
+while repeat == "да":
     player1_choice: str = input(f"{player1_name}: ")
     player2_choice: str = input(f"{player2_name}: ")
 
@@ -29,8 +34,7 @@ while repeat == "да":
     elif player2_choice not in game:
         print(att_player2)
     else:
-        if ((player1_choice and player2_choice) in game
-                and player1_choice == player2_choice):
+        if player1_choice == player2_choice:
             print("Ничья!")
         elif player1_choice == game[1]:
             if player2_choice == game[2]:
