@@ -6,18 +6,8 @@ repeat: str = "да"
 
 winner: str = "Поздравляем! Победитель - "
 
-# TODO: 1. Дублирование шаблонов
-att_player1: str = (f"ПРЕДУПРЕЖДЕНИЕ: {player1_name} соблюдайте "
-                    f"правила игры. Начнем игру заново!")
-
-att_player2: str = (f"ПРЕДУПРЕЖДЕНИЕ: {player2_name} соблюдайте "
-                    f"правила игры. Начнем игру заново!")
-
-att_all: str = ("ПРЕДУПРЕЖДЕНИЕ: Пожалуйста соблюдайте правила игры. "
-                "Начнем игру заново!")
-
-# TODO: 2. Лучше использовать переменные (константы)
-game: list = ["бумага", "камень", "ножницы"]
+att_start: str = "ПРЕДУПРЕЖДЕНИЕ:"
+att_end: str = "соблюдайте правила игры. Начнем игру заново!"
 
 ROCK = "камень"
 PAPER = "бумага"
@@ -27,29 +17,30 @@ while repeat == "да":
     player1_choice: str = input(f"{player1_name}: ")
     player2_choice: str = input(f"{player2_name}: ")
 
-    if player1_choice not in game and player2_choice not in game:
-        print(att_all)
-    elif player1_choice not in game:
-        print(att_player1)
-    elif player2_choice not in game:
-        print(att_player2)
+    if (player1_choice not in [ROCK, PAPER, SCISSORS] and player2_choice
+            not in [ROCK, PAPER, SCISSORS]):
+        print(att_start, "Пожалуйста", att_end)
+    elif player1_choice not in [ROCK, PAPER, SCISSORS]:
+        print(att_start, player1_name, att_end)
+    elif player2_choice not in [ROCK, PAPER, SCISSORS]:
+        print(att_start, player2_name, att_end)
     else:
         if player1_choice == player2_choice:
             print("Ничья!")
-        elif player1_choice == game[1]:
-            if player2_choice == game[2]:
+        elif player1_choice == ROCK:
+            if player2_choice == SCISSORS:
                 print(winner, player1_name)
-            elif player2_choice == game[0]:
+            elif player2_choice == PAPER:
                 print(winner, player2_name)
-        elif player1_choice == game[2]:
-            if player2_choice == game[0]:
+        elif player1_choice == SCISSORS:
+            if player2_choice == PAPER:
                 print(winner, player1_name)
-            elif player2_choice == game[1]:
+            elif player2_choice == ROCK:
                 print(winner, player2_name)
-        elif player1_choice == game[0]:
-            if player2_choice == game[1]:
+        elif player1_choice == PAPER:
+            if player2_choice == ROCK:
                 print(winner, player1_name)
-            elif player2_choice == game[2]:
+            elif player2_choice == SCISSORS:
                 print(winner, player2_name)
 
     repeat = input("Хотите продолжить игру? (да/нет): ")
